@@ -1,0 +1,91 @@
+{
+  "description": "Example trajectory for Panda robot with base motion",
+  "robot_model": "panda_with_base",
+  "trajectory": [
+    {
+      "time_interval": 0.01,
+      "joints": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Home position"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Base moves forward"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Base continues forward"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Base moves sideways"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Base moves upward"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Base rotates (roll)"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Base rotates (pitch)"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Base rotates (yaw)"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Arm joint 1"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Arm joint 2"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "description": "Arm joint 3"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.5, -1.5, 0.0, 0.0, 0.0, 0.0],
+      "description": "Arm joint 4"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.5, -1.5, 0.5, 0.0, 0.0, 0.0],
+      "description": "Arm joint 5"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.5, -1.5, 0.5, 0.5, 0.0, 0.0],
+      "description": "Arm joint 6"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.5, -1.5, 0.5, 0.5, 0.5, 0.0],
+      "description": "Arm joint 7"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.5, -1.5, 0.5, 0.5, 0.5, 0.02],
+      "description": "Gripper open"
+    },
+    {
+      "time_interval": 0.01,
+      "joints": [0.2, 0.1, 0.1, 0.2, 0.2, 0.3, 0.5, -0.5, 0.5, -1.5, 0.5, 0.5, 0.5, 0.0],
+      "description": "Gripper close"
+    }
+  ]
+}

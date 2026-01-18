@@ -1,0 +1,86 @@
+{
+  "description": "Example scene configuration with various objects",
+  "frame_id": "world",
+  "objects": [
+    {
+      "name": "table",
+      "type": "box",
+      "frame_id": "world",
+      "position": [0.8, 0.0, -0.4],
+      "orientation": [0, 0, 0],
+      "scale": [0.8, 0.6, 0.02],
+      "color": [0.6, 0.4, 0.2, 1.0],
+      "description": "Work surface table"
+    },
+    {
+      "name": "red_sphere",
+      "type": "sphere",
+      "frame_id": "world",
+      "position": [0.5, -0.3, 0.1],
+      "orientation": [0, 0, 0],
+      "scale": [0.1, 0.1, 0.1],
+      "color": [1.0, 0.0, 0.0, 1.0],
+      "description": "Red object on table"
+    },
+    {
+      "name": "blue_sphere",
+      "type": "sphere",
+      "frame_id": "world",
+      "position": [0.5, 0.3, 0.1],
+      "orientation": [0, 0, 0],
+      "scale": [0.08, 0.08, 0.08],
+      "color": [0.0, 0.0, 1.0, 1.0],
+      "description": "Blue object on table"
+    },
+    {
+      "name": "green_box",
+      "type": "box",
+      "frame_id": "world",
+      "position": [0.8, 0.4, 0.15],
+      "orientation": [0, 0, 0],
+      "scale": [0.1, 0.1, 0.1],
+      "color": [0.0, 1.0, 0.0, 1.0],
+      "description": "Green box"
+    },
+    {
+      "name": "cyan_cylinder",
+      "type": "cylinder",
+      "frame_id": "world",
+      "position": [0.3, 0.0, 0.1],
+      "orientation": [0, 0, 0],
+      "scale": [0.1, 0.1, 0.2],
+      "color": [0.0, 1.0, 1.0, 1.0],
+      "description": "Cyan cylinder"
+    },
+    {
+      "name": "yellow_sphere",
+      "type": "sphere",
+      "frame_id": "world",
+      "position": [1.0, 0.0, 0.15],
+      "orientation": [0, 0, 0],
+      "scale": [0.12, 0.12, 0.12],
+      "color": [1.0, 1.0, 0.0, 1.0],
+      "description": "Yellow object"
+    },
+    {
+      "name": "magenta_box",
+      "type": "box",
+      "frame_id": "world",
+      "position": [0.5, 0.0, 0.15],
+      "orientation": [0.2, 0.3, 0.0],
+      "scale": [0.08, 0.08, 0.15],
+      "color": [1.0, 0.0, 1.0, 1.0],
+      "description": "Magenta rotated box"
+    },
+    {
+      "name": "boundary_box",
+      "type": "box",
+      "frame_id": "world",
+      "position": [0.5, 0.0, -0.8],
+      "orientation": [0, 0, 0],
+      "scale": [2.0, 2.0, 0.02],
+      "color": [0.5, 0.5, 0.5, 0.3],
+      "description": "Ground plane"
+    }
+  ]
+}
