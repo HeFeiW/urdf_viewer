@@ -9,7 +9,7 @@ def generate_launch_description():
     return LaunchDescription([
         DeclareLaunchArgument(
             'urdf',
-            default_value='panda_with_base.urdf',
+            default_value='leaphand_with_base.urdf',
             description='URDF file within the show_urdf package'
         ),
         DeclareLaunchArgument(

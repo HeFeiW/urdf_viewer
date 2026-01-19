@@ -32,7 +32,7 @@ ros2 launch show_urdf display_launch.py
 
 ### ✅ 需求 2：JSON 轨迹回放
 **要求**：从 JSON 文件加载轨迹（时间间隔 + 关节角度），发布到 /joint_states，RViz 可视化
-
+ 
 **实现状态**：✅ **已完成**
 
 **实现细节**：

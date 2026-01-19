@@ -1,1 +1,8 @@
 __pycache__/
+*/build/
+*/log/
+*/install/
+*.obj
+*.stl
+*.ply
+*.json

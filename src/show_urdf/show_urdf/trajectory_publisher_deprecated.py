@@ -46,6 +46,7 @@ class TrajectoryPublisher(Node):
         self._trajectory_index = 0
 
         self._load_trajectory()
+        self.get_logger().info(f'initial transform:\n{self._trajectory[0]}')
         if not self._trajectory:
             self.get_logger().error('No trajectory loaded; publisher will remain idle.')
             return

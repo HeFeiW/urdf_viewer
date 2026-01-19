@@ -27,6 +27,8 @@ def get_data_files():
         'leaphand-meshes',
         'dexhand-meshes',
         'rviz',
+        'config',
+        'obj_dir',
     ]
     for directory in directories_to_install:
         data_files += collect_data_files(package_name, directory)
@@ -39,8 +41,6 @@ def get_data_files():
                 os.path.join(package_name, 'dexhand.urdf'),
                 os.path.join(package_name, 'leaphand.urdf'),
                 os.path.join(package_name, 'leaphand_with_base.urdf'),
-                os.path.join(package_name, 'trajectory.json'),
-                os.path.join(package_name, 'scene_config.json'),
             ]
         )
     ]
@@ -62,6 +62,8 @@ setup(
             'broadcast_rot = show_urdf.broadcast_rot:main',
             'trajectory_publisher = show_urdf.trajectory_publisher:main',
             'scene_publisher = show_urdf.scene_publisher:main',
+            'grasp_visualizer = show_urdf.grasp_visualizer:main',
+            'traj_visualizer = show_urdf.traj_visualizer:main',
         ],
     },
 )

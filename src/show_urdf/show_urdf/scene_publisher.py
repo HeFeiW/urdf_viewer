@@ -59,6 +59,42 @@ class ScenePublisher(Node):
 
         return path_value
 
+    def _resolve_mesh_path(self, mesh_file: str) -> str:
+        """Convert mesh file path to ROS resource URI format."""
+        # If already a proper URI, return as-is
+        mesh_file = 'obj_dir/' + mesh_file
+        if mesh_file.startswith('package://') or mesh_file.startswith('file://'):
+            return mesh_file
+        
+        # If absolute path exists, convert to file:// URI
+        if os.path.isabs(mesh_file) and os.path.exists(mesh_file):
+            return f'file://{mesh_file}'
+        
+        # If relative path exists, convert to absolute then to file:// URI
+        if os.path.exists(mesh_file):
+            abs_path = os.path.abspath(mesh_file)
+            return f'file://{abs_path}'
+        
+        # Try to resolve relative to package share directory
+        try:
+            package_share = get_package_share_directory('show_urdf')
+        except Exception:
+            self.get_logger().warning(f'Could not resolve package path for mesh: {mesh_file}')
+            return f'file://{os.path.abspath(mesh_file)}'
+        
+        # Try in package share directory
+        candidate = os.path.join(package_share, mesh_file)
+        if os.path.exists(candidate):
+            return f'file://{candidate}'
+        
+        # Try just the basename in package share
+        candidate = os.path.join(package_share, os.path.basename(mesh_file))
+        if os.path.exists(candidate):
+            return f'file://{candidate}'
+        
+        # As last resort, return as package:// URI
+        return f'package://show_urdf/{mesh_file}'
+
     def _load_scene(self) -> Dict:
         scene_config = self.get_parameter('scene_config').get_parameter_value().string_value
         resolved_path = self._resolve_path(scene_config)
@@ -104,6 +140,14 @@ class ScenePublisher(Node):
             marker.type = Marker.SPHERE
         elif obj_type == 'cylinder':
             marker.type = Marker.CYLINDER
+        elif obj_type == 'mesh':
+            marker.type = Marker.MESH_RESOURCE
+            mesh_file = obj.get('mesh_file', '')
+            if not mesh_file:
+                self.get_logger().warning(f'Mesh object "{obj.get("name")}" missing mesh_file field')
+                return None
+            marker.mesh_resource = self._resolve_mesh_path(mesh_file)
+            marker.mesh_use_embedded_materials = obj.get('use_embedded_materials', True)
         else:
             self.get_logger().warning(f'Unsupported object type: {obj_type}')
             return None
@@ -115,6 +159,12 @@ class ScenePublisher(Node):
         position = obj.get('position', [0.0, 0.0, 0.0])
         orientation = obj.get('orientation', [0.0, 0.0, 0.0])
         scale = obj.get('scale', [0.1, 0.1, 0.1])
+        # mesh is usually in meters, so scale accordingly
+        if obj_type == 'mesh':
+            scale = [s * 10.0 for s in scale]
+        # [info] show scale for debugging
+        self.get_logger().info(f"Object {obj.get('name')} scale: {scale}")
+        self.get_logger().info(f"Object {obj.get('name')} mesh_resource: {getattr(marker, 'mesh_resource', 'N/A')}")
         color = obj.get('color', [0.5, 0.5, 0.5, 1.0])
 
         marker.pose.position.x = float(position[0]) if len(position) > 0 else 0.0

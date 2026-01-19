@@ -1,8 +1,8 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 from glob import glob
 
-package_name = 'show_urdf'
+package_name = 'ohno'
 
 # 递归获取所有文件
 def collect_data_files(base_dir, rel_dir):
@@ -21,31 +21,22 @@ def collect_data_files(base_dir, rel_dir):
 
 def get_data_files():
     data_files = [('share/' + package_name, ['package.xml'])]
-    directories_to_install = [
-        'launch',
-        'meshes',
-        'leaphand-meshes',
-        'dexhand-meshes',
-    ]
-    for directory in directories_to_install:
-        data_files += collect_data_files(package_name, directory)
     return data_files
     
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(),
     data_files=get_data_files(),
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='your_name',
-    maintainer_email='your_email@example.com',
+    maintainer='HeFeiW',
+    maintainer_email='hefei1504@163.com',
     description='TODO: Package description',
     license='TODO: License declaration',
-    tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'broadcast_rot = show_urdf.broadcast_rot:main',
+            'talk = ohno.talk:main',
         ],
     },
 )
